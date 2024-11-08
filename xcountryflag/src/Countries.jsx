@@ -1,6 +1,8 @@
 // card -->self made card
 // function which should have card in it and them we will map card in it and fetch data from the api through promise
 
+import { useEffect } from "react";
+
 const Card = () => {
   return (
     <div
@@ -9,12 +11,12 @@ const Card = () => {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
-        flexDirection: "row",
+        flexDirection: "column",
         border: " 2px solid #ccc",
         borderRadius: "20px",
         alignItems: "center",
         padding: "10px",
-        margin: "10px",
+
         height: "120px",
         width: "120px",
       }}
@@ -29,14 +31,23 @@ const Card = () => {
   );
 };
 
+useEffect(() => {}, []);
+
+
+
 function Countries() {
-  const array = [1, 2, 3, 4, 5];
+  // const array = [1, 2, 3, 4, 5];
+  const APIEndPoint = `https://xcountries-backend.azurewebsites.net/all`;
+  {
+    const res
+  }
+
   return (
-    <>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
       {array.map((item) => (
         <Card />
       ))}
-    </>
+    </div>
   );
 }
 
