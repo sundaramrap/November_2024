@@ -1,51 +1,54 @@
-// card -->self made card
-// function which should have card in it and them we will map card in it and fetch data from the api through promise
+import React, { useState, useEffect } from "react";
 
-import { useEffect } from "react";
-
-const Card = () => {
+const Card = ({ country }) => {
   return (
     <div
       className="XcountrtyFlag"
       style={{
         display: "flex",
-        flexWrap: "wrap",
+
         justifyContent: "center",
+        justifyItems: "center",
         flexDirection: "column",
         border: " 2px solid #ccc",
         borderRadius: "20px",
         alignItems: "center",
         padding: "10px",
-
         height: "120px",
         width: "120px",
+        textAlign: "CENTER",
       }}
     >
       <img
-        src="https://think360studio-media.s3.ap-south-1.amazonaws.com/photo/plugin/article/2021/india-flag-wallpaper-2021-1-12082021.png"
-        alt="alternative_name"
+        src={country.flag}
+        alt={country.name}
         style={{ width: "50px", height: "50px" }}
       />
-      <h5>Country Name</h5>
+      <h5>{country.name}</h5>
     </div>
   );
 };
 
-useEffect(() => {}, []);
-
-
-
 function Countries() {
-  // const array = [1, 2, 3, 4, 5];
-  const APIEndPoint = `https://xcountries-backend.azurewebsites.net/all`;
-  {
-    const res
-  }
+  const [countries, setCountries] = useState([]);
+  const APIEndPoint = "https://xcountries-backend.azurewebsites.net/all";
+
+  useEffect(() => {
+    fetch(APIEndPoint)
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data);
+      })
+      .catch((error) => console.error("Error fetching data", error));
+  }, []);
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-      {array.map((item) => (
-        <Card />
+      {countries.map((country, index) => (
+        <Card
+          key={index}
+          country={{ name: country.name, flag: country.flag }}
+        />
       ))}
     </div>
   );
