@@ -24,7 +24,7 @@ function StopWatch() {
   };
 
   const ResetT = () => {
-    clearInterval(setIntervalId);
+    clearInterval(intervalId);
     setTimer(0);
     setRunningTimer(false);
   };
@@ -32,7 +32,7 @@ function StopWatch() {
   const formattimeMath = (seconds) => {
     const minute = Math.floor(seconds / 60); //get the minute
     const secs = seconds % 60; //get the second
-    return `${minute}:${secs < 10 ? `0${secs}` : secs}`;
+    return `${minute}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
   useEffect(() => {
@@ -41,8 +41,8 @@ function StopWatch() {
 
   return (
     <>
-      <h1>StopWatch</h1>
-      <p>Time :{formattimeMath(timer)}</p>
+      <h1>Stopwatch</h1>
+      <p>Time: {formattimeMath(timer)}</p>
       <button onClick={ToggleSP}>{runningTimer ? "Stop" : "Start"}</button>
       <button onClick={ResetT}>Reset</button>
     </>
