@@ -1,19 +1,16 @@
-import { useEffect } from "react";
+// Make a application to take a name from the user and then show it on the text
 import { useState } from "react";
-
 export default function Home() {
-  const [name, setName] = useState(" Enter Name");
+  const [name, setName] = useState("Enter name ");
 
-  useEffect((name) => {
-    setName(name);
-  }, []);
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
 
   return (
-    <div>
-      <input type="text" name="name" />
-      <div> Name :{name} </div>
-    </div>
+    <>
+      <input value={name} onChange={handleNameChange} />
+      <p> Your name is a: {name}</p>
+    </>
   );
 }
-
-// Make a application to take a name from the user and then show it on the text

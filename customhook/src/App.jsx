@@ -1,9 +1,11 @@
-import Home from "./Home";
+// import Home from "./Home";
+import HookCustom from "./HookCustom";
 
 function App() {
   return (
     <>
-      <Home />
+      {/* <Home /> */}
+      <HookCustom />
     </>
   );
 }
