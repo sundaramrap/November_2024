@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import PieChart from "../components/PieChart";
+import PieChartCard from "../components/PieChartCard";
 import TransactionTable from "../components/TransactionTable";
 import GraphTopExp from "../components/GraphTopExp";
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
       <div style={{ display: "flex", backgroundColor: "white" }}>
         <Card />
         <Card />
-        <PieChart />
+        <PieChartCard style={{ flex: "1 1 300px" }} />
       </div>
 
       <div>
