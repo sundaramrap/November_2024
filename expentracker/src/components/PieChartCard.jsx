@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts";
 
 // Data and colors
 const data = [
@@ -57,6 +57,7 @@ function PieChartCard() {
           ))}
         </Pie>
       </PieChart>
+      <Legend />
     </ResponsiveContainer>
   );
 }
