@@ -2,6 +2,9 @@ import { useState } from "react";
 
 function App() {
   const [fname, setFName] = useState("");
+  const [lname, setLname] = useState("");
+
+  function handleSubmit() {}
 
   return (
     <>
@@ -13,7 +16,7 @@ function App() {
         </label>
         <br />
         <label>
-          Last Name: <input />
+          Last Name:{lname} <input />
         </label>
         <br />
         <button type="submit">Submit</button>
